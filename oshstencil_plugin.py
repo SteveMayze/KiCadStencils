@@ -16,9 +16,9 @@ def getProjectName(path):
 class OSHStencilPlugin(pcbnew.ActionPlugin):
 
 	def defaults(self):
-		self.name = 'Generate the OSH Stensils Archive'
+		self.name = 'Generate the OSH Stencils Archive'
 		self.category = 'Packaging Utility'
-		self.description = 'Will create an archive of the front and back Solder Paste layers and the Edge Cut layer for sending to OSH Stensils'
+		self.description = 'Will create an archive of the front and back Solder Paste layers and the Edge Cut layer for sending to OSH Stencils'
 
 
 	def Run(self):
@@ -37,7 +37,7 @@ class OSHStencilPlugin(pcbnew.ActionPlugin):
 
 		project_name = getProjectName(path)
 
-		archive_name =  "{}_stensil.zip".format(project_name)
+		archive_name =  "{}_stencil.zip".format(project_name)
 
 		print("Archive Name = {}".format(archive_name))
 

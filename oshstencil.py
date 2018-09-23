@@ -27,7 +27,7 @@ mask = ["F.Paste.gbr","B.Paste.gbr","Edge.Cuts.gbr",]
 
 project_name = getProjectName(path)
 
-archive_name =  "{}_stensil.zip".format(project_name)
+archive_name =  "{}_stencil.zip".format(project_name)
 
 print("Archive Name = {}".format(archive_name))
 
