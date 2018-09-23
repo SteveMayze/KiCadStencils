@@ -40,5 +40,3 @@ with zipfile.ZipFile(archive_name, 'w') as stencil_zip:
 			stencil_zip.write(os.path.join(gerbersDir, g))
 
 zipfile.ZipFile.close(stencil_zip)
-
-
