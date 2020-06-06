@@ -1,5 +1,5 @@
 
-## execfile('D:\python\pcbnew\oshstencil.py')
+## execfile('D:\python\pcbnew\oshpark.py')
 
 import pcbnew
 import os
@@ -13,12 +13,12 @@ def getProjectName(path):
 				return os.path.join(root, bname)
 	return None
 
-class OSHStencilPlugin(pcbnew.ActionPlugin):
+class OSHParkPlugin(pcbnew.ActionPlugin):
 
 	def defaults(self):
-		self.name = 'Generate the OSH Stencils Archive'
+		self.name = 'Generate the OSH Park Archive'
 		self.category = 'Packaging Utility'
-		self.description = 'Will create an archive of the front and back Solder Paste layers and the Edge Cut layer for sending to OSH Stencils'
+		self.description = 'Will create an archive of the Gerber and the Edge Cut layer for sending to OSH Park or other Fab House'
 
 
 	def Run(self):
@@ -33,11 +33,23 @@ class OSHStencilPlugin(pcbnew.ActionPlugin):
 		print("Gerbers Dir = {}".format(gerbersDir))
 		gerbers = os.listdir( gerbersDir )
 
-		mask = ["F_Paste.gbr","B_Paste.gbr","Edge_Cuts.gbr",]
-
+		mask = [
+            ".drl",
+            "B_Cu.gbr", 
+            "B_Mask.gbr", 
+            "F_Paste.gbr", 
+            "B_SilkS.gbr", 
+            "Edge_Cuts.gbr", 
+            "F_Cu.gbr", 
+            "F_Mask.gbr", 
+            "B_Paste.gbr", 
+            "F_SilkS.gbr", 
+            "In1_Cu.gbr", 
+            "In2_Cu.gbr",
+        ]
 		project_name = getProjectName(path)
 
-		archive_name =  "{}_stencil.zip".format(project_name)
+		archive_name =  "{}_gerber.zip".format(project_name)
 
 		print("Archive Name = {}".format(archive_name))
 
@@ -51,4 +63,4 @@ class OSHStencilPlugin(pcbnew.ActionPlugin):
 
 		zipfile.ZipFile.close(stencil_zip)
 
-OSHStencilPlugin().register()
+OSHParkPlugin().register()

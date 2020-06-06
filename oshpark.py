@@ -23,7 +23,24 @@ gerbersDir = plot.GetOutputDirectory()
 print("Gerbers Dir = {}".format(gerbersDir))
 gerbers = os.listdir( gerbersDir )
 
-mask = ["F_Paste.gbr","B_Paste.gbr","Edge_Cuts.gbr",]
+
+# "GoldCap-XBee.drl",
+
+
+mask = [
+	".drl",
+	"B_Cu.gbr", 
+	"B_Mask.gbr", 
+	"F_Paste.gbr", 
+	"B_SilkS.gbr", 
+	"Edge_Cuts.gbr", 
+	"F_Cu.gbr", 
+	"F_Mask.gbr", 
+	"B_Paste.gbr", 
+	"F_SilkS.gbr", 
+	"In1_Cu.gbr", 
+	"In2_Cu.gbr",
+	]
 
 project_name = getProjectName(path)
 
